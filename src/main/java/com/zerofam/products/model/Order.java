@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
@@ -21,6 +22,6 @@ public class Order extends BaseEntity<Long>{
 
     private Status status;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.MERGE)
     private List<Product> products;
 }
